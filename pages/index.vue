@@ -1,17 +1,24 @@
 <template>
-  <section class="container">
-    <div>
-      <h1 class="title">
-        star-wars-nuxtjs
-      </h1>
-    </div>
-  </section>
+  <v-container class="home_page_main" :style="`background-image: url(${images})`"  ma-0 pa-0 fluid >
+
+  </v-container>
 </template>
 
 <script>
-
 export default {
+  data() {
+    return {
+      images: '/images/space.jpg',
+    }
+  }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+  .home_page_main {
+    height: calc(100vh - 150px);
+    background-size: cover;
+  }
+
+</style>

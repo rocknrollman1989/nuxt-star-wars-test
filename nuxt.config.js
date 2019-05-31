@@ -22,14 +22,6 @@ module.exports = {
   */
   plugins: ['~plugins/vuetify.js'],
 
-  css: [
-    {
-      src: join(__dirname, 'assets/css/app.styl'),
-      lang: 'styl'
-    }
-  ],
-
-
   build: {
     vendor: ['vuetify'],
     /*
