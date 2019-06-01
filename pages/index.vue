@@ -1,17 +1,20 @@
 <template>
-  <v-container class="home_page_main" :style="`background-image: url(${images})`"  ma-0 pa-0 fluid >
-
+  <v-container
+    class="home_page_main"
+    :style="`background-image: url(${images})`"
+    ma-0 pa-0 fluid
+  >
   </v-container>
 </template>
 
 <script>
-import { arrayOfBackgrounds, DELAY } from '~/constants/imageConstants'
+import { arrayOfBackgrounds, DELAY } from '~/constants/imageConstants';
 
 export default {
   data() {
     return {
       images: '/images/space.jpg',
-    }
+    };
   },
   mounted() {
     this.cangeBackgrounds();
@@ -19,17 +22,17 @@ export default {
   methods: {
     cangeBackgrounds() {
       arrayOfBackgrounds.forEach((element, index) => {
-        const interval = setTimeout(() => {
+        setTimeout(() => {
           this.images = element;
           if (index === arrayOfBackgrounds.length - 1) {
             clearTimeout(this);
-            setTimeout(() => this.cangeBackgrounds(), DELAY)
+            setTimeout(() => this.cangeBackgrounds(), DELAY);
           }
-        }, DELAY*index)
+        }, DELAY * index);
       });
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

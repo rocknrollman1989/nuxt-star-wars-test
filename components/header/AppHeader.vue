@@ -7,8 +7,12 @@
         </v-flex>
         <v-flex md8>
           <v-layout justify-space-around row>
-            <nuxt-link to="/">Home</nuxt-link>
-            <nuxt-link to="/encyclopedia">Encyclopedia</nuxt-link>
+            <nuxt-link to="/">
+              Home
+            </nuxt-link>
+            <nuxt-link to="/encyclopedia">
+              Encyclopedia
+            </nuxt-link>
           </v-layout>
         </v-flex>
       </v-layout>
@@ -19,7 +23,7 @@
 <script>
 export default {
   name: 'Header',
-}
+};
 </script>
 
 <style lang="scss" scoped>

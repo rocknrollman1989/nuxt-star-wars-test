@@ -2,7 +2,7 @@
   <footer>
     <v-container grid-list-xs>
       <v-layout row wrap>
-          <h2>All rights reserved by wookie, damn!&copy;</h2>
+        <h2>All rights reserved by wookie, damn!&copy;</h2>
       </v-layout>
     </v-container>
   </footer>
@@ -10,8 +10,8 @@
 
 <script>
 export default {
-name: 'app-footer',
-}
+  name: 'app-footer',
+};
 </script>
 
 <style lang="scss" scoped>
@@ -24,4 +24,3 @@ name: 'app-footer',
     }
   }
 </style>
-

@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-header></app-header>
-    <nuxt/>
+    <nuxt />
     <app-footer></app-footer>
   </div>
 </template>
@@ -14,8 +14,8 @@ export default {
   components: {
     AppHeader,
     AppFooter,
-  }
-}
+  },
+};
 </script>
 
 
@@ -30,4 +30,3 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-
