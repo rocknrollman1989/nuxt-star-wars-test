@@ -37,6 +37,7 @@
                     <v-btn
                       color="primary"
                       dark
+                      @click="getApiToFetchData(category)"
                     >
                       <nuxt-link :to="`/encyclopedia/${index}`" @click.native="getApiToFetchData(category)">
                         {{ index }}
