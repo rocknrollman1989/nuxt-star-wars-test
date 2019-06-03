@@ -37,5 +37,7 @@ module.exports = {
     "import/prefer-default-export": 0,
     "vue/name-property-casing": 0,
     "vue/max-attributes-per-line": 0,
+    "import/no-extraneous-dependencies": 0,
+    "vue/singleline-html-element-content-newline": 0,
   },
 }
