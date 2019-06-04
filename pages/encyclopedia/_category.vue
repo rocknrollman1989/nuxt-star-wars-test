@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-data-table
-      :headers="headers"
+      :headers="tableHeaders"
       :items="list"
       dark
       class="elevation-1"
@@ -9,7 +9,7 @@
       :rows-per-page-items="[10]"
     >
       <template v-slot:items="props">
-        <td>{{ props.item.name }}</td>
+        <td>{{ columnToView(props) }}</td>
         <td class="text-xs-center">{{ props.item.gender }}</td>
         <td class="text-xs-center">{{ props.item.created }}</td>
         <td class="text-xs-center">{{ props.item.url }}</td>
@@ -23,37 +23,30 @@
 import { mapState } from 'vuex';
 import { SWAPI_ROOT } from '~/api/apiConstants';
 import { SWAPI_STORE, GET_SWAPI_LIST } from '~/store/swapiStore/types';
+import { findRouteApi, createTableHeaders } from '~/helpers';
 
 export default {
   name: 'people',
   data() {
     return {
-      headers: [
-        { text: 'Name',
-          align: 'left',
-          sortable: false,
-          value: 'name',
-        },
-        { text: 'Gender',
-          align: 'center',
-          sortable: false,
-        },
-        { text: 'Created',
-          align: 'center',
-          sortable: false,
-        },
-        { text: 'Url',
-          align: 'center',
-          sortable: false,
-        },
-      ],
+
     };
   },
   computed: {
     ...mapState(SWAPI_STORE, ['list']),
+    tableHeaders() {
+      return createTableHeaders(this.list);
+    },
   },
-  fetch({ store }) {
-    store.dispatch(SWAPI_STORE + GET_SWAPI_LIST, `${SWAPI_ROOT}people/`);
+  async fetch({ store, route }) {
+    const apiRoute = findRouteApi(route.path);
+    await store.dispatch(SWAPI_STORE + GET_SWAPI_LIST, `${SWAPI_ROOT}${apiRoute}/`);
+  },
+  methods: {
+    columnToView(objToView) {
+      console.log(objToView);
+      // console.log(createColumnToView(objToView, header)); header createColumnToView
+    },
   },
 };
 

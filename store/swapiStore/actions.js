@@ -8,9 +8,8 @@ export default {
   },
 
   async [GET_SWAPI_LIST]({ commit }, api) {
-    console.log(api);
     const list = await this.$axios.get(api);
     commit(SET_LIST, list.data.results);
-    console.log(list.data.results);
+    // console.log(list.data.results);
   },
 };

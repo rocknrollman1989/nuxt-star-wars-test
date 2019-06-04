@@ -6,6 +6,7 @@
           <v-img
             v-if="fetchingCategory !== index"
             :src="`/images/categories/${index}.jpg`"
+            onerror="`/images/categories/r2d2.jpg`"
             :alt="index"
             aspect-ratio="2.75"
           ></v-img>
@@ -28,7 +29,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { SWAPI_STORE, GET_SWAPI_LIST } from '~/store/swapiStore/types';
+import { SWAPI_STORE } from '~/store/swapiStore/types';
 
 export default {
   name: 'categories',
@@ -44,7 +45,6 @@ export default {
     async getApiToFetchData(api, index) {
       this.fetchingCategory = index;
       try {
-        await this.$store.dispatch(SWAPI_STORE + GET_SWAPI_LIST, api);
         await this.$router.push(`/encyclopedia/${index}`);
         this.fetchingCategory = null;
       } catch {
