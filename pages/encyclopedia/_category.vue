@@ -8,11 +8,8 @@
       style="margin: 0 20px 0 20px"
       :rows-per-page-items="[10]"
     >
-      <template v-slot:items="props">
-        <td>{{ columnToView(props) }}</td>
-        <td class="text-xs-center">{{ props.item.gender }}</td>
-        <td class="text-xs-center">{{ props.item.created }}</td>
-        <td class="text-xs-center">{{ props.item.url }}</td>
+      <template v-slot:items="list">
+        <td v-for="header in tableHeaders" :key="header.id">{{ list.item[header.text] | filterFunction(header.text) }}</td>
       </template>
     </v-data-table>
   </div>
@@ -27,6 +24,12 @@ import { findRouteApi, createTableHeaders } from '~/helpers';
 
 export default {
   name: 'people',
+  filters: {
+    filterFunction(filterValue, typeOfColumn) {
+      console.log(filterValue, '!!!!!', typeOfColumn);
+      return filterValue;
+    },
+  },
   data() {
     return {
 
@@ -41,12 +44,6 @@ export default {
   async fetch({ store, route }) {
     const apiRoute = findRouteApi(route.path);
     await store.dispatch(SWAPI_STORE + GET_SWAPI_LIST, `${SWAPI_ROOT}${apiRoute}/`);
-  },
-  methods: {
-    columnToView(objToView) {
-      console.log(objToView);
-      // console.log(createColumnToView(objToView, header)); header createColumnToView
-    },
   },
 };
 

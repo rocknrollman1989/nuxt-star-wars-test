@@ -3,7 +3,7 @@ export const findRouteApi = (route) => {
 };
 
 const headerObjSettings = {
-  align: 'center',
+  align: 'left',
   sortable: false,
 };
 
@@ -41,17 +41,4 @@ export const createTableHeaders = (list) => {
     });
   }
   return tableHeaders;
-};
-
-export const createColumnToView = (objToView, params) => {
-  console.log(objToView, params);
-  // params.forEach((param) => {
-  //   return Object.keys(objToView).forEach((key) => {
-  //     if (param.text === key) {
-  //       // console.log(objToView[key]);
-  //       return objToView[key];
-  //     }
-  //     return 'null';
-  //   });
-  // });
 };
