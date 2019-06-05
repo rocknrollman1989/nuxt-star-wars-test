@@ -37,7 +37,6 @@
                     <v-btn
                       color="primary"
                       dark
-                      @click="getApiToFetchData(category)"
                     >
                       <nuxt-link :to="`/encyclopedia/${index}`" @click.native="getApiToFetchData(category)">
                         {{ index }}
@@ -62,11 +61,6 @@ export default {
   name: 'Header',
   computed: {
     ...mapState(SWAPI_STORE, ['categories']),
-  },
-  methods: {
-    getApiToFetchData(api) {
-      console.log(api);
-    },
   },
 };
 

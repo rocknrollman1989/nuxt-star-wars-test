@@ -1,5 +1,26 @@
+const clearAllSpacesInArray = (array) => {
+  if (array.indexOf('') !== -1) {
+    const index = array.indexOf('');
+    array.splice(index, 1);
+    return clearAllSpacesInArray(array);
+  }
+  return array;
+};
+
 export const findRouteApi = (route) => {
-  return route.split('/').slice(-1);
+  const array = route.split('/');
+  clearAllSpacesInArray(array);
+  return array.slice(-1);
+};
+
+export const findRouteApiDetailsPage = (route) => {
+  const array = route.split('/');
+  clearAllSpacesInArray(array);
+  return array.slice(-2).join('/');
+};
+
+export const pagesToView = (count, maxPageSize = 10) => {
+  return Math.ceil(Number(count / maxPageSize));
 };
 
 const headerObjSettings = {

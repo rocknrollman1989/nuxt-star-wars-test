@@ -26,7 +26,7 @@ module.exports = {
   /*
   ** Build configuration
   */
-  plugins: ['~plugins/vuetify.js'],
+  plugins: ['~plugins/vuetify.js', '~plugins/vueFilter.js'],
   link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
   ],
@@ -35,15 +35,15 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    extend(config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-        });
-      }
-    },
+    // extend(config, { isDev, isClient }) {
+    //   if (isDev && isClient) {
+    //     config.module.rules.push({
+    //       enforce: 'pre',
+    //       test: /\.(js|vue)$/,
+    //       loader: 'eslint-loader',
+    //       exclude: /(node_modules)/,
+    //     });
+    //   }
+    // },
   },
 };
